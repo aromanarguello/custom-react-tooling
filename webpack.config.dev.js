@@ -8,5 +8,9 @@ const merge = require('webpack-merge');
 const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig, {
-  mode: 'development'
+  mode: 'development',
+  // devServer is one of the keys merge accepts to allow us to override other default options
+  devServer: {
+    port: 9000
+  }
 });

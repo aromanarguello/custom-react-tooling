@@ -1,36 +1,27 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
 
-class App extends React.Component {
-  state = {
-    count: 0
-  };
+// separates into own bundle and doesn't load it until needed
+const Warning = React.lazy(() => import('./Warning'));
 
-  render() {
-    return (
-      <div>
-        <h1>Hello world</h1>
-        <h2 className={this.state.count > 10 ? 'warning' : null}>Count: {this.state.count}</h2>
-        <button
-          onClick={() =>
-            this.setState(state => ({
-              count: state.count + 1
-            }))
-          }>
-          +
-        </button>
-        <button
-          onClick={() =>
-            this.setState(state => ({
-              count: state.count - 1
-            }))
-          }>
-          -
-        </button>
-      </div>
-    );
-  }
-}
+const App = () => {
+  const [count, setCount] = React.useState(0);
+  return (
+    <div>
+      <h1>Incrementor</h1>
+      <h2>Count: {count}</h2>
+      {count > 10 && (
+        <React.Suspense fallback={null}>
+          <Warning>Max number exceeded!</Warning>
+        </React.Suspense>
+      )}
+      <button disabled={count > 10} onClick={() => setCount(count + 1)}>
+        +
+      </button>
+      <button onClick={() => setCount(count - 1)}>-</button>
+    </div>
+  );
+};
 
 // hot reloading allows the local state to remain the unchanged during hot updates i.e code changes
 export default hot(module)(App);

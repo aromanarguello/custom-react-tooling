@@ -1,5 +1,5 @@
-const path = require('path'); // from node
-const HtmlWebpackPluging = require('html-webpack-plugin');
+const path = require('path') // from node
+const HtmlWebpackPluging = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.js', // webpack will put this by default
@@ -29,4 +29,4 @@ module.exports = {
       template: './src/index.html'
     })
   ]
-};
+}

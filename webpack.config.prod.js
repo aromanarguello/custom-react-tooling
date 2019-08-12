@@ -3,9 +3,9 @@
  * to create different configurations for webpack
  * dev/prod
  */
-const merge = require('webpack-merge');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const baseConfig = require('./webpack.config.base');
+const merge = require('webpack-merge')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const baseConfig = require('./webpack.config.base')
 
 // add bundle analyzer here because
 // webpack will optimize the build differently
@@ -24,4 +24,4 @@ module.exports = merge(baseConfig, {
     react: 'React',
     'react-dom': 'ReactDOM'
   }
-});
+})

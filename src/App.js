@@ -1,10 +1,10 @@
-import React from 'react';
-import { hot } from 'react-hot-loader';
+import React from 'react'
+import { hot } from 'react-hot-loader'
 
-const Warning = React.lazy(() => import('./Warning'));
+const Warning = React.lazy(() => import('./Warning'))
 
 const App = () => {
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(0)
   return (
     <div>
       <h1>Incrementor</h1>
@@ -19,8 +19,8 @@ const App = () => {
       </button>
       <button onClick={() => setCount(count - 1)}>-</button>
     </div>
-  );
-};
+  )
+}
 
 // hot reloading allows the local state to remain the unchanged during hot updates i.e code changes
-export default hot(module)(App);
+export default hot(module)(App)
